@@ -6,6 +6,9 @@ REALSERVER1=192.168.139.132:22
 REALSERVER2=192.168.139.129:22
 DIRECTOR=$DIRECTOR_SUBNET.$DIRECTOR_ALIAS_OCTET
 
+echo Enabling IP forwarding...
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
 echo Creating IP alias...
 echo '  'ifconfig eth0:$DIRECTOR_ALIAS_OCTET $DIRECTOR broadcast $DIRECTOR_SUBNET.255 netmask 255.255.255.0
 ifconfig eth0:$DIRECTOR_ALIAS_OCTET $DIRECTOR broadcast $DIRECTOR_SUBNET.255 netmask 255.255.255.0
