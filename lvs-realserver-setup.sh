@@ -6,8 +6,9 @@ netstat -rn
 echo
 
 echo Adding default route to directory primary address
-echo '  'route add default gw $DIRECTOR_PRIMARY_ADDRESS
-route add default gw $DIRECTOR_PRIMARY_ADDRESS
+CMD="route add default gw $DIRECTOR_PRIMARY_ADDRESS"
+echo '  '$CMD
+$CMD
 echo
 
 netstat -rn
